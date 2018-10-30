@@ -1,0 +1,82 @@
+@media (max-width: 800px) {
+
+
+    .offer-discount {
+        margin: 16% 0% 0% 54%;
+        padding: 6px 8px 20px -2px;
+    }
+
+    .off {
+        position: absolute;
+        padding: 67px 15px 23px 154px;
+        font-size: 16px;
+        color: white;
+        margin: 18px;
+        text-shadow: 1px 1px 1px black;
+
+    }
+    .view_offers {
+        position: fixed;
+        margin-top: -59px;
+        margin-left: -108px;
+
+    }
+
+
+    .owl-dots {
+        margin: 8% 8% -2% 18%;
+    }
+
+
+    .offer-price {    
+        padding: 8px;
+        margin: -60px 0px 0px 8px;
+    }
+    .shortcode-offers-reviews{
+        margin-bottom: 50px;
+    }
+    .btn.btn-sm.btn-default {
+        margin: 21% -30%;
+    }
+    .title_offer{
+        text-align: center;
+    }
+
+    .shortcode-tour-reviews {
+        padding: 0px;
+    }
+    .wrapper-content .top_site_main {
+        padding-top: 77px !important;
+    }
+    #offer-box{
+        margin-top: -30px !important;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .top_site_main .banner-wrapper {
+        padding-top: 37px;
+        padding-bottom: 5px;
+    }
+    #mobile-navi {
+        font-size: 1px;
+
+    }
+
+  
+
+
+
+    }
+    
+    
+    
+    
+    
+    
+
+    
+
+
+

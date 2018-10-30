@@ -1,0 +1,363 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 18, 2017, 2:19:47 PM
+    Author     : Suharshana DsW
+*/
+
+#v_m_para{
+    font-size: 18px;
+    color: black;
+}
+
+#v_m_title{
+    font-family: "Courier";
+    color: black;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.about_hotel_title{
+    font-family: "Impact, Charcoal, sans-serif";
+    font-weight: bolder;
+    font-size: 40px;
+    padding-bottom: 20px;
+}
+
+.welcome_title
+{
+    padding-top:30px;
+    padding-bottom: 30px;
+}
+#v_m_background{
+
+
+    min-height: 300px; 
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pacage_duration
+{
+    color: white;
+
+}
+
+.button_tour_pacage_readmore{
+
+    background: #26bdf7;
+    background-color: rgb(38, 189, 247);
+    border-radius: 4px;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+    padding-top:7px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button_tour_pacage_readmore span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button_tour_pacage_readmore span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button_tour_pacage_readmore:hover span {
+    padding-right: 25px;
+    color: black;
+}
+
+.button_tour_pacage_readmore:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.button_tour_pacage_book{
+    background: #ffb300;
+    background-color:#ffb300;
+    border-radius: 4px;
+    border: none;
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+    padding-top:7px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.button_tour_pacage_book:hover{
+    background: #ffb300;
+    background-color:#ffcc00;
+    border-radius: 4px;
+    border: none;
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+    padding-top:7px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#button_readmore_class{
+    padding-top: 12px;
+}
+
+.Activity_parallax{
+    height:auto;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.more_tour_container{
+    padding-bottom: 30px;
+}
+.contact-sty {
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+.contact-send-msg{
+    background: #ffb300;
+    background-color: rgb(255, 179, 0);
+    background-image: none;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto auto;
+    box-shadow: 0 2px 0 0 rgba(255, 179, 0, 0.6);
+    font-weight: bold;
+
+
+}
+.contact-send-msg:hover{
+    background: #ffb300;
+    background-color: rgb(255, 179, 0);
+    background-image: none;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto auto;
+    box-shadow: 0 2px 0 0 rgba(255, 179, 0, 0.6);
+    color:white;
+    font-weight: bold;
+
+}
+
+.map-container {
+    width: 100%;
+
+
+}
+.map-container iframe{
+
+    width: 100%;
+    height: 100%;
+    position: absolute; /* IE needs a position other than static */
+    pointer-events: none; 
+}
+.map-container iframe.clicked{
+    pointer-events: auto;
+}
+.custom-booking-container{
+    padding: 10px;
+    border: 1px solid;
+    border-color: #ddd;
+}
+.inner-booking{
+    padding: 20px;
+}
+.pacage-booking-eliment{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.book-now{
+    color: #000;
+}
+.book-now:hover{
+    color: #FFFFFF;
+}
+.custom-activity-container{
+
+    padding: 10px;
+    border: 1px solid;
+    border-top-color: currentcolor;
+    border-right-color: currentcolor;
+    border-bottom-color: currentcolor;
+    border-left-color: currentcolor;
+    border-color: #ddd;
+    height:130px;
+    margin: 3px;
+}
+.inner-activity{
+    padding: 2px;
+}
+
+.offer-img {
+    position: absolute;
+    z-index: 999999;
+    float: right;
+    margin: -6% 0% 0% 60%;
+    width: 140px;
+}
+.offer-title{
+    position: absolute;
+    color: white;
+    margin: 20px 0px 0px 10px;
+    font-size: 150%;
+    font-weight: 100;
+    font-family: fantasy;
+}
+
+.offer-box{
+    width: 100%;
+    background: -moz-linear-gradient(top, rgba(31, 39, 51, 0.78) 0, rgba(0, 0, 0, 0) 100%);
+    background: -webkit-linear-gradient(top, rgba(31, 39, 51, 0.78) 0, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(31, 39, 51, 0.78) 0, rgba(0, 0, 0, 0) 100%);
+    -webkit-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+.offer-discount {
+    position: absolute;
+    background: red;
+    padding: 20px 8px 20px 8px;
+    border-radius: 50%;
+    font-size: 26px;
+    color: white;
+    margin: 16% 0% 0% 60%;
+}
+
+
+.off{
+    position: absolute;
+    padding: 85px 12px 22px 334px;
+    font-size: 24px;
+    color: white;
+    margin: 8px;
+    text-shadow: 1px 1px 1px black; 
+}
+
+.offer-short-description {
+    position: absolute;
+    margin-top: -148px;
+    padding: 6%;
+    color:white;
+}
+.offer-price {
+    position: absolute;
+    background: orange;
+    border-radius: 8px;
+    padding: 8px;
+    margin: -60px 0px 0px 20px;
+
+}
+.view_offers {
+    position: fixed;
+    margin-top: -61px;
+    margin-left: -121px;
+    background: orange;
+    border-radius: 8px;
+    padding: 7px;
+    z-index: 999;
+    color: black;
+}
+
+#offer-box{
+    margin-top: -80px;
+}
+
+.welcome-text{
+    margin-bottom: 50px;
+}
+ 
+.shortcode-offers-reviews .owl-dots {
+    text-align: center;
+}
+
+/*
+view-Comments
+*/
+.thumbnail {
+    padding:0px;
+}
+.panel {
+	position:relative;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+	position:absolute;
+	top:11px;left:-16px;
+	right:100%;
+	width:0;
+	height:0;
+	display:block;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+.panel>.panel-heading:after{
+	border-width:7px;
+	border-right-color:#f7f7f7;
+	margin-top:1px;
+	margin-left:2px;
+}
+.panel>.panel-heading:before{
+	border-right-color:#ddd;
+	border-width:8px;
+}
+
+.header_top_bar {
+    
+    margin-bottom: -10px;
+    margin-top: -4px;
+
+}
+#text-7 {
+    margin-bottom: 5px;
+    margin-top: 6px;
+}
+#text-15 {
+    margin-top: -3px;
+}
