@@ -81,7 +81,7 @@
             <div class="container wrapper-copyright">
                 <div class="row">
                     <div class="col-sm-6">
-                        <div><p>Copyright © Safari Sri Lanka | Web Site By: Sublime Holdings.</p></div>
+                        <div><p>Copyright © Exploration Travel Sri Lanka | Web Site By: Sublime Holdings.</p></div>
                     </div>
                     <div class="col-sm-6">
                         <aside id="text-5" class="widget_text">
