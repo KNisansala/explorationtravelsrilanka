@@ -44,7 +44,7 @@ include './function.php';
                         <div class="col-md-5">
 
                             <div class="shortcode-offers-reviews  wrapper-offers-slider" id="offer-box">
-                                <div class="tours-type-slider list_content" data-dots="true" data-nav="false" data-responsive='{"0":{"items":1}, "480":{"items":1}, "768":{"items":1}, "992":{"items":1}, "1200":{"items":1}}'>
+                                <div class="tours-type-slider list_content" data-dots="true" data-nav="false" data-responsive='{"0":{"items":1}, "480":{"items":1}, "768":{"items":2},"600":{"items":2}, "992":{"items":1}, "1200":{"items":1}}'>
                                     <?php
                                     $offers = getAlloffers();
                                     foreach ($offers as $offer) {
