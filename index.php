@@ -11,7 +11,7 @@ include './function.php';
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="xmlrpc.html">
-        <title>Sri Lanka Safari | Safari Sri Lanka | Sri Lanka Safari Tours</title>
+        <title>Exploration Travel Sri Lanka</title>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" media="all">
         <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css" media="all">
@@ -89,10 +89,10 @@ include './function.php';
                             <div class="row welcome-text" >
                                 <div class="col-sm-12 mg-btn-6x">
                                     <div class="shortcode_title title-center title-decoration-bottom-center">
-                                        <h3 class="title_primary">Welcome to Sri Lanka Safari Tours</h3><span class="line_after_title"></span>
+                                        <h3 class="title_primary">Welcome to Exploration Travel Sri Lanka</h3><span class="line_after_title"></span>
                                     </div>
                                     <p class="text-justify"> 
-                                        Sri Lanka Safari Tours is a company with full of trusted, passionate travel 
+                                        Exploration Travel Sri Lanka is a company with full of trusted, passionate travel 
                                         specialist who creates customized wildlife safari,  holidays, honeymoon, journeys 
                                         among various superb destinations with Sri Lanka. Even you can adjust 
                                         or schedule about the program with your own requirement. It is an experience with a 

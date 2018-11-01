@@ -1,8 +1,3 @@
-
-
-
-
-
 <header id="masthead" class="site-header sticky_header affix-top">
     <div class="header_top_bar">
         <div class="container">
@@ -54,8 +49,9 @@
             </div>
             <div class="width-logo sm-logo" style="height: 61px; width: 191px;">
 
-                <img src="images/SAFARI-TRACKERS-LOGO1.png" alt="Logo" class="logo_transparent_static" style="height: 77px;margin-top: -7px;">
-                <img src="images/SAFARI-TRACKERS-LOGO1.png" alt="Sticky logo" class="logo_sticky" style="height: 77px;margin-top: -7px;">
+                <img src="images/logo/logo1.png
+                     " alt="Logo" class="logo_transparent_static" style="height: 77px;margin-top: -7px;">
+                <img src="images/logo/logomob.png" alt="Sticky logo" class="logo_sticky" style="height: 77px;margin-top: -7px;">
 
             </div>
             <nav class="width-navigation">

@@ -6,7 +6,8 @@ $success = NULL;
 $error = NULL;
 
 $id = $_GET['id'];
- 
+
+
 if (isset($_POST['save-data'])) {
 
     $editPack = updateOnePackage($_POST, $_FILES);
@@ -18,8 +19,8 @@ if (isset($_POST['save-data'])) {
     }
 }
 
-$pack = getOnePackage($id);
-
+//$pack = getOnePackage($id);
+$pack = getOneTourPackageByID($id);
 ?>
 <script src="tinymce/js/tinymce/tinymce.min.js"></script>
 <script>
@@ -82,7 +83,7 @@ $pack = getOnePackage($id);
                                     </div>
 
                                 <?php } ?>
-                                
+
                                 <?php if (isset($error)) { ?>
 
                                     <div class="alert alert-danger" style="margin-top: 15px ">
@@ -94,35 +95,44 @@ $pack = getOnePackage($id);
                             </div>
 
                             <div class="form-group">
-                                <label for="imageName">Select Image</label>
-                                <input name="id" value="<?php echo $pack['id']; ?>" type="hidden" />
-                                <input name="oldImg" value="<?php echo $pack['image_name']; ?>" type="hidden" />
-                                <input name="image" type="file" id="exampleInputFile" />
-                                <p class="help-block">Automaticity cropping this image 270 X 230 pixels</p>
-                            </div> 
 
-                            <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" name="title" value="<?php echo $pack['title']; ?>" class="form-control" id="title" placeholder="Enter Room Name" />
-                            </div>  
-                            <div class="form-group">
-                                <label for="duration">duration</label>
-                                <input type="text" name="duration" value="<?php echo $pack['duration']; ?>" class="form-control" id="duration" placeholder="Enter duration" />
-                            </div>  
-                            
-                            <div class="form-group">
-                                <label for="short_description" >Short Description: </label>                                 
-                                <textarea id="short_description" name="short_description" class="form-control" rows="3"><?php echo $pack['short_description']; ?></textarea> 
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="file" id="image" class="form-control" value="<?php echo $pack['image_name']; ?>"  name="image">
 
-                            </div>
+                                    </div>
+                                    <!--<img src="../images/packages/images1_1.jpg" alt=""/>-->
+                                    <div class="form-group">
+                                        <label class="form-label">Old Image</label>
+                                        <div class="form-group">
+                                            <img src="../images/packages/thumb/<?php echo $pack['image_name']; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="image" alt="old image">
+                                        </div>
+                                    </div>
 
-                            <div class="form-group">
-                                <label for="description" >Description: </label>                                 
-                                <textarea id="description" name="description" class="form-control" rows="5"><?php echo $pack['description']; ?> </textarea> 
+                                </div> 
 
-                            </div>
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input type="text" name="title" value="<?php echo $pack['title']; ?>" class="form-control" id="title" placeholder="Enter Room Name" />
+                                </div>  
+                                <div class="form-group">
+                                    <label for="duration">Price</label>
+                                    <input type="text" name="duration" value="<?php echo $pack['price']; ?>" class="form-control" id="duration" placeholder="Enter duration" />
+                                </div>  
 
-                            <button type="submit" name="save-data" value="Save" class="btn btn-default">Save</button> 
+                                <div class="form-group">
+                                    <label for="short_description" >Short Description: </label>                                 
+                                    <textarea id="short_description" name="short_description" class="form-control" rows="3"><?php echo $pack['short_description']; ?></textarea> 
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="description" >Description: </label>                                 
+                                    <textarea id="description" name="description" class="form-control" rows="5"><?php echo $pack['description']; ?> </textarea> 
+
+                                </div>
+
+                                <button type="submit" name="save-data" value="Save" class="btn btn-default">Save</button> 
                         </form>
                     </div>
                 </div>
@@ -130,9 +140,6 @@ $pack = getOnePackage($id);
 
         </div>
         <!--end new image add form-->
-
-        
-
     </div>
     <!--end container-->
 </div>

@@ -27,7 +27,7 @@ function seoUrl($text) {
 function addNewSlide($post, $file) {
 
     $addImgName = filename();
- 
+
     $dir_dest = '../images/slider/';
 
     $handle = new Upload($file['image']);
@@ -165,7 +165,7 @@ function updateWelcomeNote($post) {
 
 function addNewImage($post, $file) {
 
-    $addImgName = filename(); 
+    $addImgName = filename();
 
     $dir_dest = '../images/gallery/';
     $dir_dest_thumb = '../images/gallery/thumb/';
@@ -214,9 +214,9 @@ VALUES ('" . mysql_real_escape_string($_POST['caption']) . "', '" . mysql_real_e
 }
 
 function getAllImages() {
-     
+
     $query = "SELECT * FROM `gallery` ORDER BY sort ASC";
-    
+
     $db = new DB();
 
     $result = $db->readQuery($query);
@@ -358,39 +358,39 @@ function updateAboutUspageContant($post, $file) {
 //package //
 
 function addNewPackage($post, $file) {
-
-    $addImgName = filename();
-
-    $dir_dest = '../images/packages/';
-
-    $handle = new Upload($file['image']);
-
-    $imgName = null;
-
-    if ($handle->uploaded) {
-        $handle->image_resize = true;
-        $handle->file_new_name_ext = 'jpg';
-        $handle->image_ratio_crop = 'C';
-        $handle->file_new_name_body = $addImgName;
-        $handle->image_x = 480;
-        $handle->image_y = 300;
-
-        $handle->Process($dir_dest);
-
-        if ($handle->processed) {
-            $info = getimagesize($handle->file_dst_pathname);
-            $imgName = $handle->file_dst_name;
-        }
-    }
-
-    $db = new DB();
-
-    $query = "INSERT INTO `packages` (title, duration, short_description, description, image_name)
-VALUES ('" . mysql_real_escape_string($_POST['title']) . "','" . mysql_real_escape_string($_POST['duration']) . "', '" . mysql_real_escape_string($_POST['short_description']) . "', '" . mysql_real_escape_string($_POST['description']) . "', '" . mysql_real_escape_string($imgName) . "')";
-
-    $result = $db->readQuery($query);
-
-    return $result;
+//
+//    $addImgName = filename();
+//
+//    $dir_dest = '../images/packages/';
+//
+//    $handle = new Upload($file['image']);
+//
+//    $imgName = null;
+//
+//    if ($handle->uploaded) {
+//        $handle->image_resize = true;
+//        $handle->file_new_name_ext = 'jpg';
+//        $handle->image_ratio_crop = 'C';
+//        $handle->file_new_name_body = $addImgName;
+//        $handle->image_x = 480;
+//        $handle->image_y = 300;
+//
+//        $handle->Process($dir_dest);
+//
+//        if ($handle->processed) {
+//            $info = getimagesize($handle->file_dst_pathname);
+//            $imgName = $handle->file_dst_name;
+//        }
+//    }
+//
+//    $db = new DB();
+//
+//    $query = "INSERT INTO `packages` (title, duration, short_description, description, image_name)
+//VALUES ('" . mysql_real_escape_string($_POST['title']) . "','" . mysql_real_escape_string($_POST['duration']) . "', '" . mysql_real_escape_string($_POST['short_description']) . "', '" . mysql_real_escape_string($_POST['description']) . "', '" . mysql_real_escape_string($imgName) . "')";
+//
+//    $result = $db->readQuery($query);
+//
+//    return $result;
 }
 
 function getAllPackages() {
@@ -469,7 +469,7 @@ function addNewPackagePhoto($post, $file) {
 
     $addImgName = filename();
     $id = $_POST['id'];
- 
+
     $dir_dest = '../images/packages/gallery/';
     $dir_dest_thumb = '../images/packages/gallery/thumb/';
 
@@ -517,9 +517,9 @@ VALUES ('" . mysql_real_escape_string($id) . "', '" . mysql_real_escape_string($
 }
 
 function getAllPackagesPhotos($id) {
-    
+
     $query = "SELECT * FROM `packages_photos` WHERE `package_id` = '$id' ORDER BY sort ASC";
-    
+
     $db = new DB();
 
     $result = $db->readQuery($query);
@@ -546,10 +546,10 @@ function getOnePackagePhoto($id) {
 }
 
 function updateOnePackagePhoto($post, $file) {
- 
+
     $imageold = $_POST['oldImg'];
     $id = $_POST['id'];
-    
+
     $dir_dest = '../images/rooms/gallery/';
     $dir_dest_thumb = '../images/rooms/gallery/thumb/';
 
@@ -601,8 +601,8 @@ function updateOnePackagePhoto($post, $file) {
 
     return $result;
 }
-//end of packages//
 
+//end of packages//
 //Offers//
 
 
@@ -715,16 +715,13 @@ function updateOneoffers($post, $file) {
     return $result;
 }
 
-
-
 //end of offers//
-
 //Activities //
 
 function addNewActivitie($post, $file) {
 
     $addImgName = filename();
- 
+
     $dir_dest = '../images/activities/';
 
     $handle = new Upload($file['image']);
@@ -757,10 +754,10 @@ VALUES ('" . mysql_real_escape_string($_POST['title']) . "', '" . mysql_real_esc
     return $result;
 }
 
-function getAllActivities() { 
-    
+function getAllActivities() {
+
     $query = "SELECT * FROM `activities` ORDER BY sort ASC";
-    
+
     $db = new DB();
 
     $result = $db->readQuery($query);
@@ -828,9 +825,9 @@ function updateOneActivitie($post, $file) {
 }
 
 function addNewActivitiePhoto($post, $file) {
-    
+
     $addImgName = filename();
- 
+
     $dir_dest = '../images/activities/gallery/';
     $dir_dest_thumb = '../images/activities/gallery/thumb/';
 
@@ -878,9 +875,9 @@ VALUES ('" . mysql_real_escape_string($_POST['id']) . "', '" . mysql_real_escape
 }
 
 function getAllActivitiePhotos($id) {
-     
+
     $query = "SELECT * FROM `activities_photos` WHERE `activities_id` = '$id' ORDER BY sort ASC";
-    
+
     $db = new DB();
 
     $result = $db->readQuery($query);
@@ -1254,8 +1251,8 @@ function addNewTestimonial($post, $file) {
     $name = $_POST['name'];
     $description = $_POST['description'];
     $status = $_POST['status'];
-    
-    
+
+
     $dir_dest = 'images/testimonial/';
     $handle = new Upload($file['image']);
     $addImgName = filename();
@@ -1285,8 +1282,8 @@ function addNewTestimonialBySyte($post, $file) {
     $name = $_POST['name'];
     $description = $_POST['description'];
     $status = $_POST['status'];
-    
-    
+
+
     $dir_dest = 'images/testimonial/';
     $handle = new Upload($file['image']);
     $addImgName = filename();
@@ -1312,7 +1309,7 @@ VALUES ('" . mysql_real_escape_string($name) . "', '" . mysql_real_escape_string
     return $result;
 }
 
-function getAllTestimonials() {    
+function getAllTestimonials() {
     $query = "SELECT * FROM `testimonial` ORDER BY sort ASC";
     $db = new DB();
 
@@ -1337,7 +1334,7 @@ function getAllActiveTestimonials() {
             'id' => $row['id'],
             'name' => $row['name'],
             'description' => $row['description'],
-            'image_name' => $row['image_name'],            
+            'image_name' => $row['image_name'],
             'status' => $row['status'],
             'sort' => $row['sort'],
         );
@@ -1378,9 +1375,185 @@ function updateOneTestimonial($post, $file) {
     $db = new DB();
     $sql = "UPDATE `testimonial` SET "
             . " `name` = '" . mysql_real_escape_string($_POST['name']) . "',"
-            . " `description` = '" . mysql_real_escape_string($_POST['description']) . "',"           
+            . " `description` = '" . mysql_real_escape_string($_POST['description']) . "',"
             . " `status` = '" . mysql_real_escape_string($_POST['status']) . "'"
             . "WHERE `id` = '$id' ";
     $result = $db->readQuery($sql);
     return $result;
+}
+
+//Tour Package
+function AllPackages() {
+
+    $query = "SELECT * FROM `tour_package` ORDER BY queue ASC";
+    $db = new DB();
+    $result = $db->readQuery($query);
+    $array_res = array();
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($array_res, $row);
+    }
+
+    return $array_res;
+}
+
+function getOneTourPackageByID($id) {
+
+    $query = "SELECT `id`,`title`,`image_name`,`price`,`short_description`,`description`,`queue` FROM `tour_package` WHERE `id`=" . $id;
+    $db = new DB();
+    $result = $db->readQuery($query);
+
+    $row = mysql_fetch_assoc($result);
+
+    return $row;
+}
+
+function createTourpackage($post, $file) {
+
+    $addImgName = filename();
+    $dir_dest = '../images/packages/';
+    $dir_dest_thumb = '../images/packages/thumb/';
+    $dir_dest_thumb1 = '../upload/tour-package/thumb1/';
+    $handle = new Upload($file['image']);
+    $imgName = null;
+
+//    $addImgName = filename();
+//
+//    $dir_dest = '../images/packages/';
+//
+//    $handle = new Upload($file['image']);
+//
+//    $imgName = null;
+
+    if ($handle->uploaded) {
+        $handle->image_resize = true;
+        $handle->file_new_name_ext = 'jpg';
+        $handle->image_ratio_crop = 'C';
+//        $handle->file_new_name_body = Helper::randamId();
+        $handle->image_x = 577;
+        $handle->image_y = 545;
+
+        $handle->Process($dir_dest);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+        $handle->image_resize = true;
+        $handle->file_new_name_ext = 'jpg';
+        $handle->image_ratio_crop = 'C';
+//        $handle->file_new_name_body = Helper::randamId();
+        $handle->image_x = 65;
+        $handle->image_y = 65;
+
+        $handle->Process($dir_dest_thumb);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+
+
+        $handle->image_resize = true;
+        $handle->file_new_name_ext = 'jpg';
+        $handle->image_ratio_crop = 'C';
+//        $handle->file_new_name_body = Helper::randamId();
+        $handle->image_x = 190;
+        $handle->image_y = 111;
+
+        $handle->Process($dir_dest_thumb1);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+    }
+
+    $db = new DB();
+
+    $query = "INSERT INTO `tour_package` (title,image_name,price,short_description,description)
+VALUES ('" . mysql_real_escape_string($_POST['title']) . "','" . mysql_real_escape_string($imgName) . "', '" . mysql_real_escape_string($_POST['price']) . "', '" . mysql_real_escape_string($_POST['short_description']) . "','" . mysql_real_escape_string($_POST['description']) . "')";
+
+    $result = $db->readQuery($query);
+
+    return $result;
+}
+
+function updateOneTourPackage($post, $file) {
+
+    $dir_dest = '../images/packages/';
+    $dir_dest_thumb = '../images/packages/thumb/';
+    $dir_dest_thumb1 = '../upload/tour-package/thumb1/';
+    $handle = new Upload($file['image']);
+    $imgName = null;
+
+
+    if ($handle->uploaded) {
+        $handle->image_resize = true;
+        $handle->file_new_name_body = TRUE;
+        $handle->file_overwrite = TRUE;
+        $handle->file_new_name_ext = FALSE;
+        $handle->image_ratio_crop = 'C';
+        $handle->file_new_name_body = $imageold;
+        $handle->image_x = 577;
+        $handle->image_y = 545;
+
+        $handle->Process($dir_dest);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+    }
+
+    if ($handle->uploaded) {
+        $handle->image_resize = true;
+        $handle->file_new_name_body = TRUE;
+        $handle->file_overwrite = TRUE;
+        $handle->file_new_name_ext = FALSE;
+        $handle->image_ratio_crop = 'C';
+        $handle->file_new_name_body = $imageold;
+        $handle->image_x = 65;
+        $handle->image_y = 65;
+
+        $handle->Process($dir_dest_thumb);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+    }
+
+    if ($handle->uploaded) {
+        $handle->image_resize = true;
+        $handle->file_new_name_body = TRUE;
+        $handle->file_overwrite = TRUE;
+        $handle->file_new_name_ext = FALSE;
+        $handle->image_ratio_crop = 'C';
+        $handle->file_new_name_body = $imageold;
+        $handle->image_x = 65;
+        $handle->image_y = 65;
+
+        $handle->Process($dir_dest_thumb1);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+    }
+    
+     $db = new DB();
+
+    $sql = "UPDATE `packages` SET "
+            . "`title` = '" . mysql_real_escape_string($_POST['title']) . "',"
+            . "`duration` = '" . mysql_real_escape_string($_POST['duration']) . "',"
+            . "`short_description` = '" . mysql_real_escape_string($_POST['short_description']) . "',"
+            . " `description` = '" . mysql_real_escape_string($_POST['description']) . "' "
+            . "WHERE `id` = '$id' ";
+
+    $result = $db->readQuery($sql);
+
+    return $result;
+    
+    
 }
