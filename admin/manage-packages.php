@@ -7,7 +7,7 @@ $error = NULL;
 
 if (isset($_POST['save-data'])) {
 
-    $rooms = addNewPackage($_POST, $_FILES);
+    $rooms = createTourpackage($_POST, $_FILES);
 
     if ($rooms) {
         $success = 'Successfully added new Slide';
@@ -15,7 +15,6 @@ if (isset($_POST['save-data'])) {
         $error = 'Something went wrong, please try again ';
     }
 }
-
 ?>
 
 <script src="tinymce/js/tinymce/tinymce.min.js"></script>
@@ -79,7 +78,7 @@ if (isset($_POST['save-data'])) {
                                     </div>
 
                                 <?php } ?>
-                                
+
                                 <?php if (isset($error)) { ?>
 
                                     <div class="alert alert-danger" style="margin-top: 15px ">
@@ -91,32 +90,30 @@ if (isset($_POST['save-data'])) {
                             </div>
 
                             <div class="form-group">
-                                <label for="imageName">Select Image</label>
-                                <input name="image" type="file" id="imageName" required />
+                                <label class="form-label">Title</label>
+                                <input type="text" id="title" class="form-control"  autocomplete="off" name="title" required="true">
                                 <p class="help-block">Automaticity cropping this image 480 X 300 pixels</p>
                             </div> 
 
                             <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" name="title" class="form-control" id="title" placeholder="Enter Package Name" required/>
+                                <label class="form-label">Price</label>
+                                <input type="text" id="price" class="form-control" autocomplete="off" name="price" required="true">
                             </div>  
                             <div class="form-group">
-                                <label for="duration">duration</label>
-                                <input type="text" name="duration" class="form-control" id="duration" placeholder="Enter duration" required />
+                                <label class="form-label">Image</label>
+                                <input type="file" id="image" class="form-control" name="image"  required="true">
                             </div>  
-                            
-                            <div class="form-group">
-                                <label for="short_description" >Short Description: </label>                                 
-                                <textarea id="short_description" name="short_description" class="form-control" rows="3" required></textarea> 
 
+                            <div class="form-group">
+                                <label class="form-label">Short Description</label>
+                                <input type="text" id="short_description" class="form-control" autocomplete="off" name="short_description" required="true">
                             </div>
 
                             <div class="form-group">
-                                <label for="description" >Description: </label>                                 
-                                <textarea id="description" name="description" class="form-control" rows="5"></textarea> 
-
+                               <label for="description">Description</label>                               
+                               <textarea id="description" name="description" class="form-control" rows="5"></textarea> 
                             </div>
-
+                            <!--<input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="create"/>-->
                             <button type="submit" name="save-data" value="Save" class="btn btn-default">Add</button> 
                         </form>
                     </div>
@@ -132,8 +129,8 @@ if (isset($_POST['save-data'])) {
 
                 <div class="row"> 
                     <?php
-                    $packages = getAllPackages(); 
-                    
+                    $packages = AllPackages();
+
                     if (count($packages) > 0) {
                         foreach ($packages as $package) {
                             ?>
@@ -141,20 +138,20 @@ if (isset($_POST['save-data'])) {
                                 <div class="slider-image">                                
                                     <img class="img-responsive" src="../images/packages/<?php echo $package["image_name"]; ?>" alt=""/>                                  
                                 </div>  
-                                
+
                                 <div class="image-option " > 
                                     <p class="maxlinetitle"><?php echo $package["title"]; ?></p>
                                     <button class="glyphicon glyphicon-trash delete text-danger delete-pack" id="<?php echo $package["id"]; ?>"></button>
                                     <a href="edit-package.php?id=<?php echo $package["id"]; ?>"><button class="glyphicon glyphicon-pencil edit"></button></a>                                    
                                     <a href="add-packages-photos.php?id=<?php echo $package["id"]; ?>"><button class="glyphicon glyphicon-picture pictuers"></button></a>
                                 </div>
-                                 
+
                             </div> 
                             <?php
                         }
                     } else {
                         ?> 
-                    <b style="padding-left: 15px;">No Package in the database.</b> 
+                        <b style="padding-left: 15px;">No Package in the database.</b> 
                     <?php } ?> 
 
                 </div>
