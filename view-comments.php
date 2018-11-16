@@ -3,13 +3,13 @@ include './db.php';
 include './function.php';
 
 include './admin/Class/Upload.php';
- 
+
 $imgName = NULL;
 $success = NULL;
 $error = NULL;
 
 if (isset($_POST['save-data'])) {
-  
+
     $result = addNewTestimonial($_POST, $_FILES);
     if ($result) {
         $success = 'Successfully added new testimonial';
@@ -17,16 +17,13 @@ if (isset($_POST['save-data'])) {
         $error = 'oops';
     }
 }
- 
 ?>
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
-
-    <!-- Mirrored from html.physcode.com/travel/single-tour.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Jul 2017 06:23:49 GMT -->
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>User Comments</title>
+        <title>User Comments || Exploration Travel Sri Lanka</title>
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="xmlrpc.html">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
@@ -38,7 +35,7 @@ if (isset($_POST['save-data'])) {
         <link rel="stylesheet" href="assets/css/swipebox.min.css" type="text/css" media="all">
         <link rel="stylesheet" href="style.css" type="text/css" media="all">
         <link rel="stylesheet" href="assets/css/travel-setting.css" type="text/css" media="all">
-        <link rel="shortcut icon" href="images/favicon11.png" type="image/x-icon">
+        <link rel="shortcut icon" href="images/logo/logocap.png" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/custom.css" type="text/css" media="all">
     </head>
 
@@ -50,7 +47,7 @@ if (isset($_POST['save-data'])) {
             <div class="site wrapper-content">
                 <div class="top_site_main" style="background-image:url(images/banner/tour-pacage.png);">
                     <div class="banner-wrapper container article_heading">
-                        
+
                         <h2 class="heading_primary">View Comments</h2>
                         <div class="breadcrumbs-wrapper">
                             <ul class="phys-breadcrumb">

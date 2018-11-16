@@ -9,9 +9,10 @@ include './function.php';
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Attraction</title>
+        <title>Attraction || Exploration Travel Sri Lanka</title>
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="xmlrpc.html">
+        <link rel="shortcut icon" href="images/logo/logocap.png" type="image/x-icon">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" media="all">
         <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css" media="all">
@@ -19,7 +20,6 @@ include './function.php';
         <link rel="stylesheet" href="assets/css/font-linearicons.css" type="text/css" media="all">
         <link rel="stylesheet" href="style.css" type="text/css" media="all">
         <link rel="stylesheet" href="assets/css/travel-setting.css" type="text/css" media="all">
-        <link rel="shortcut icon" href="images/favicon11.png" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/custom.css" type="text/css" media="all">
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -32,16 +32,16 @@ include './function.php';
             <div class="site wrapper-content">
                 <div class="top_site_main" style="background-image:url(images/banner/abou.jpg);">
                     <div class="banner-wrapper container article_heading">
-                        
+
                         <h1 class="heading_primary">Attraction</h1>
                         <div class="breadcrumbs-wrapper">
-                            
+
                             <ul class="phys-breadcrumb">
                                 <li><a href="index.php" class="home">Home</a></li>
                                 <li><a href="attractions.php">Attraction</a></li>
                             </ul>
                         </div>
-                        
+
                     </div>
                 </div>
 

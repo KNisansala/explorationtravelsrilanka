@@ -721,6 +721,13 @@ input[type=radio]:checked:before {
     line-height:           16px;
     background-color:      #1e8cbe;
 }
+.tourdateimage figure{
+    margin: 1em 0px;
+    
+}
+.tourdateimage{
+    margin-bottom: 30px;
+}
 
 @-moz-document url-prefix() {
     .form-table input.tog, input[type=radio], input[type=checkbox] {
@@ -1834,6 +1841,7 @@ input[type=radio]:checked:before {
 
 .form-block__title {
     text-align: center;
+    padding-top: 12px;
 }
 
 .form-block__title h4 {
@@ -2365,7 +2373,11 @@ input[type=radio]:checked:before {
     min-height:    44px;
     margin-bottom: 10px;
 }
-
+.content_tour_style_2 .item_border .post_title title_descrip{
+    position:      relative;
+    min-height:    44px;
+    margin-bottom: -3px;
+}
 .content_tour_style_2 .item_border .post_title h5 {
     line-height:   1.4em;
     padding-right: 80px;
@@ -3241,6 +3253,9 @@ input[type=radio]:checked:before {
 .travel_tour div.product .single-tour-tabs .entry-content .wpb_wrapper:before, .travel_tour div.product .single-tour-tabs .entry-content .wpb_wrapper:after, .travel_tour-page div.product .single-tour-tabs .entry-content .wpb_wrapper:before, .travel_tour-page div.product .single-tour-tabs .entry-content .wpb_wrapper:after {
     content: "";
     display: table;
+}
+.tab-text{
+    text-align: justify;
 }
 
 .travel_tour div.product .single-tour-tabs .entry-content .wpb_wrapper:after, .travel_tour-page div.product .single-tour-tabs .entry-content .wpb_wrapper:after {
@@ -6718,6 +6733,7 @@ input[type=radio]:checked:before {
     padding-bottom: 50px;
 }
 
+
 .top_site_main .banner-wrapper .heading_primary {
     margin:      0 0 10px 0;
     color:       inherit;
@@ -7210,6 +7226,8 @@ input[type=radio]:checked:before {
     top:       50%;
     transform: translateY(-50%);
 }
+
+
 
 @keyframes blink {
     0% {
@@ -8802,6 +8820,10 @@ input[type=radio]:checked:before {
         display:       block;
         margin-bottom: 8px;
     }
+    .otherTourPack {
+        margin-bottom: 25px;
+
+    }
 }
 
 @media (max-width: 320px) {
@@ -8850,4 +8872,98 @@ input[type=radio]:checked:before {
     .banner-typed .desc {
         font-size: 1em;
     }
+
+    .otherTourPack {
+        margin-bottom: 25px;
+    }
+
+}
+
+/*tour package horver*/ 
+.hovereffect {
+    width:100%;
+    height:100%;
+    float:left;
+    overflow:hidden;
+    position:relative;
+    text-align:center;
+    cursor:default;
+}
+
+.hovereffect .overlay {
+    width:100%;
+    height:100%;
+    position:absolute;
+    overflow:hidden;
+    top:0;
+    left:0;
+    opacity:0;
+    background-color:rgba(0,0,0,0.5);
+    -webkit-transition:all .4s ease-in-out;
+    transition:all .4s ease-in-out
+}
+
+.hovereffect img {
+    display:block;
+    position:relative;
+    -webkit-transition:all .4s linear;
+    transition:all .4s linear;
+}
+
+.hovereffect h2 {
+    text-transform:uppercase;
+    color:#fff;
+    text-align:center;
+    position:relative;
+    font-size:17px;
+    background:rgba(0,0,0,0.6);
+    -webkit-transform:translatey(-100px);
+    -ms-transform:translatey(-100px);
+    transform:translatey(-100px);
+    -webkit-transition:all .2s ease-in-out;
+    transition:all .2s ease-in-out;
+    padding:10px;
+}
+
+.hovereffect a.info {
+    text-decoration:none;
+    display:inline-block;
+    text-transform:uppercase;
+    color:#fff;
+    border:1px solid #fff;
+    background-color:transparent;
+    opacity:0;
+    filter:alpha(opacity=0);
+    -webkit-transition:all .2s ease-in-out;
+    transition:all .2s ease-in-out;
+    margin:50px 0 0;
+    padding:7px 14px;
+}
+
+.hovereffect a.info:hover {
+    box-shadow:0 0 5px #fff;
+}
+
+.hovereffect:hover img {
+    -ms-transform:scale(1.2);
+    -webkit-transform:scale(1.2);
+    transform:scale(1.2);
+}
+
+.hovereffect:hover .overlay {
+    opacity:1;
+    filter:alpha(opacity=100);
+}
+
+.hovereffect:hover h2,.hovereffect:hover a.info {
+    opacity:1;
+    filter:alpha(opacity=100);
+    -ms-transform:translatey(0);
+    -webkit-transform:translatey(0);
+    transform:translatey(0);
+}
+
+.hovereffect:hover a.info {
+    -webkit-transition-delay:.2s;
+    transition-delay:.2s;
 }

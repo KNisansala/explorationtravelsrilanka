@@ -4,23 +4,26 @@ include './header.php';
 $imgName = NULL;
 $success = NULL;
 $error = NULL;
-
-$id = $_GET['id'];
-
+$id = '';
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
 
 if (isset($_POST['save-data'])) {
 
-    $editPack = updateOnePackage($_POST, $_FILES);
+    $editPack = updateOneTourPackage($_POST, $_FILES);
 
     if ($editPack) {
-        $success = 'Successfully Update Service';
+        $success = 'Successfully Update Tour package';
     } else {
         $error = 'Something went wrong, please try again ';
     }
 }
 
-//$pack = getOnePackage($id);
+
 $pack = getOneTourPackageByID($id);
+//$pack = getOnePackage($id);
+//dd($pack);
 ?>
 <script src="tinymce/js/tinymce/tinymce.min.js"></script>
 <script>
@@ -96,28 +99,24 @@ $pack = getOneTourPackageByID($id);
 
                             <div class="form-group">
 
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="file" id="image" class="form-control" value="<?php echo $pack['image_name']; ?>"  name="image">
-
-                                    </div>
-                                    <!--<img src="../images/packages/images1_1.jpg" alt=""/>-->
-                                    <div class="form-group">
-                                        <label class="form-label">Old Image</label>
-                                        <div class="form-group">
-                                            <img src="../images/packages/thumb/<?php echo $pack['image_name']; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="image" alt="old image">
-                                        </div>
-                                    </div>
-
-                                </div> 
+                                  <div class="form-group">
+                                <label for="imageName">Select Image</label>
+                                <input name="image" type="file" id="image" />
+                                <input name="id" value="<?php echo $pack['id']; ?>" type="hidden" />
+                                <input name="oldImageName" value="<?php echo $pack['oldImageName']; ?>" type="hidden" />
+                                <p class="help-block">Automaticity cropping this image 900 X 500 pixels</p>
+                            </div> 
+                                
+                                
+                                
 
                                 <div class="form-group">
                                     <label for="title">Title</label>
                                     <input type="text" name="title" value="<?php echo $pack['title']; ?>" class="form-control" id="title" placeholder="Enter Room Name" />
                                 </div>  
                                 <div class="form-group">
-                                    <label for="duration">Price</label>
-                                    <input type="text" name="duration" value="<?php echo $pack['price']; ?>" class="form-control" id="duration" placeholder="Enter duration" />
+                                    <label for="price">Price</label>
+                                    <input type="text" name="price" value="<?php echo $pack['price']; ?>" class="form-control" id="price" placeholder="price" />
                                 </div>  
 
                                 <div class="form-group">
@@ -131,8 +130,10 @@ $pack = getOneTourPackageByID($id);
                                     <textarea id="description" name="description" class="form-control" rows="5"><?php echo $pack['description']; ?> </textarea> 
 
                                 </div>
-
+                                <input type="hidden" id="oldImageName" value="<?php echo $pack['image_name']; ?>" name="oldImageName"/>
+                                <input type="hidden" name="id" value="<?php echo $pack['id']; ?>" id="id" />
                                 <button type="submit" name="save-data" value="Save" class="btn btn-default">Save</button> 
+                            </div>
                         </form>
                     </div>
                 </div>

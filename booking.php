@@ -50,7 +50,7 @@ if (isset($_GET['packageId'])) {
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <meta name="viewport" content="width=device-width">
-        <title>Booking</title>
+        <title>Booking || Exploration Travel Sri Lanka</title>
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="xmlrpc.html">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
@@ -60,7 +60,7 @@ if (isset($_GET['packageId'])) {
         <link rel="stylesheet" href="assets/css/font-linearicons.css" type="text/css" media="all">
         <link rel="stylesheet" href="style.css" type="text/css" media="all">
         <link rel="stylesheet" href="assets/css/travel-setting.css" type="text/css" media="all">
-        <link rel="shortcut icon" href="images/favicon11.png" type="image/x-icon">
+        <link rel="shortcut icon" href="images/logo/logocap.png" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/custom.css" type="text/css" media="all">
         <link href="assets/css/datepicker.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>

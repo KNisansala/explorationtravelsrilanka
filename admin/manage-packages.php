@@ -7,9 +7,9 @@ $error = NULL;
 
 if (isset($_POST['save-data'])) {
 
-    $rooms = createTourpackage($_POST, $_FILES);
+    $tourpack = createTourpackage($_POST, $_FILES);
 
-    if ($rooms) {
+    if ($tourpack) {
         $success = 'Successfully added new Slide';
     } else {
         $error = 'Something went wrong, please try again ';
@@ -53,7 +53,7 @@ if (isset($_POST['save-data'])) {
         <!--banner-->
         <div class="row">
             <div class="col-md-12">
-                <h1 class="page-head-line">Packages</h1>
+                <h1 class="page-head-line">Tour Package</h1>
             </div>
         </div>
         <!--end banner-->
@@ -64,7 +64,7 @@ if (isset($_POST['save-data'])) {
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Add New Packages
+                        Add New Package
                     </div>
                     <div class="panel-body">
                         <form method="post" action="" enctype="multipart/form-data">
@@ -92,17 +92,20 @@ if (isset($_POST['save-data'])) {
                             <div class="form-group">
                                 <label class="form-label">Title</label>
                                 <input type="text" id="title" class="form-control"  autocomplete="off" name="title" required="true">
-                                <p class="help-block">Automaticity cropping this image 480 X 300 pixels</p>
+
                             </div> 
 
                             <div class="form-group">
                                 <label class="form-label">Price</label>
                                 <input type="text" id="price" class="form-control" autocomplete="off" name="price" required="true">
                             </div>  
+                           
                             <div class="form-group">
-                                <label class="form-label">Image</label>
-                                <input type="file" id="image" class="form-control" name="image"  required="true">
-                            </div>  
+                                <label for="imageName">Select Image</label>
+                                <input name="image" type="file" id="image" required/>
+                                <p class="help-block">Automaticity cropping this image 480 X 300 pixels</p>
+                            </div>
+
 
                             <div class="form-group">
                                 <label class="form-label">Short Description</label>
@@ -110,10 +113,10 @@ if (isset($_POST['save-data'])) {
                             </div>
 
                             <div class="form-group">
-                               <label for="description">Description</label>                               
-                               <textarea id="description" name="description" class="form-control" rows="5"></textarea> 
+                                <label for="description">Description</label>                               
+                                <textarea id="description" name="description" class="form-control" rows="5"></textarea> 
                             </div>
-                            <!--<input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="create"/>-->
+                            <input type="hidden" id="id" value="<?php echo $id ?>" name="id"/>
                             <button type="submit" name="save-data" value="Save" class="btn btn-default">Add</button> 
                         </form>
                     </div>
@@ -125,37 +128,40 @@ if (isset($_POST['save-data'])) {
 
         <!--view slider image -->
         <div class="panel panel-default"> 
-            <div class="panel-body"> 
-
-                <div class="row"> 
-                    <?php
-                    $packages = AllPackages();
-
-                    if (count($packages) > 0) {
-                        foreach ($packages as $package) {
-                            ?>
-                            <div class="col-md-3 col-sm-4 col-xs-6">
-                                <div class="slider-image">                                
-                                    <img class="img-responsive" src="../images/packages/<?php echo $package["image_name"]; ?>" alt=""/>                                  
-                                </div>  
-
-                                <div class="image-option " > 
-                                    <p class="maxlinetitle"><?php echo $package["title"]; ?></p>
-                                    <button class="glyphicon glyphicon-trash delete text-danger delete-pack" id="<?php echo $package["id"]; ?>"></button>
-                                    <a href="edit-package.php?id=<?php echo $package["id"]; ?>"><button class="glyphicon glyphicon-pencil edit"></button></a>                                    
-                                    <a href="add-packages-photos.php?id=<?php echo $package["id"]; ?>"><button class="glyphicon glyphicon-picture pictuers"></button></a>
-                                </div>
-
-                            </div> 
-                            <?php
-                        }
-                    } else {
-                        ?> 
-                        <b style="padding-left: 15px;">No Package in the database.</b> 
-                    <?php } ?> 
-
+                <div class="panel-heading">
+                    Manage Tour Package
                 </div>
-            </div>
+                <div class="panel-body">
+                    <div class="row"> 
+                        <?php
+                        $packages = AllPackages();
+
+                        if (count($packages) > 0) {
+                            foreach ($packages as $package) {
+                                ?>
+                                <div class="col-md-3 col-sm-4 col-xs-6">
+                                    <div class="slider-image">                                
+                                        <img class="img-responsive" src="../upload/tour-package/<?php echo $package["image_name"]; ?>" alt=""/>                                  
+                                    </div>  
+
+                                    <div class="image-option " > 
+                                        <p class="maxlinetitle"><?php echo $package["title"]; ?></p>
+                                        <button class="glyphicon glyphicon-trash delete text-danger delete-pack" id="<?php echo $package["id"]; ?>"></button>
+                                        <a href="edit-package.php?id=<?php echo $package["id"]; ?>"><button class="glyphicon glyphicon-pencil edit"></button></a>                                    
+                                        <a href="view-tour-date.php?id=<?php echo $package["id"]; ?>"><button class="glyphicon glyphicon-time pictuers"></button></a>
+                                        <a href="arrange-tour-packages.php?id=<?php echo $id; ?>"><button class="glyphicon glyphicon-sort pictuers"></button></a>
+                                    </div>
+
+                                </div> 
+                                <?php
+                            }
+                        } else {
+                            ?> 
+                            <b style="padding-left: 15px;">No Package in the database.</b> 
+                        <?php } ?> 
+
+                    </div>
+                </div>
         </div>
         <!--end view slider image -->
 

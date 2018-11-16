@@ -15,12 +15,11 @@ $activity = getAllActivities();
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
 
-    <!-- Mirrored from html.physcode.com/travel/tours-4-cols.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Jul 2017 06:23:53 GMT -->
-    <head>
+   <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <meta name="viewport" content="width=device-width">
-        <title><?php echo $details["title"]; ?></title>
+        <title><?php echo $details["title"]; ?> || Exploration Travel Sri Lanka</title>
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="xmlrpc.html">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
@@ -30,7 +29,7 @@ $activity = getAllActivities();
         <link rel="stylesheet" href="assets/css/font-linearicons.css" type="text/css" media="all">
         <link rel="stylesheet" href="style.css" type="text/css" media="all">
         <link rel="stylesheet" href="assets/css/travel-setting.css" type="text/css" media="all">
-        <link rel="shortcut icon" href="images/favicon11.png" type="image/x-icon">
+        <link rel="shortcut icon" href="images/logo/logocap.png" type="image/x-icon">
         <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
     </head>
