@@ -30,11 +30,11 @@
                             <div class="textwidget">
                                 <ul class="menu list-arrow">
                                     <?php
-                                    $packages = getAllPackages();
-                                    foreach ($packages as $key => $pacage) {
+                                    $packages = AllPackages();
+                                    foreach ($packages as $key => $package) {
                                         if ($key < 6) {
                                             ?>
-                                            <li><a href="view-package.php?id=<?php echo $pacage['id']; ?>"><?php echo $pacage['title']; ?></a></li>
+                                            <li><a href="view-package.php?id=<?php echo $package['id']; ?>"><?php echo $package['title']; ?></a></li>
                                             <?php
                                         }
                                     }

@@ -63,7 +63,7 @@ include './Class/Upload.php';
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Packages <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="manage-packages.php">Manage Packages</a></li>
-                                <li><a href="arrange-packages.php">Arrange Packages</a></li>
+                                <li><a href="arrange-tour-packages.php">Arrange Packages</a></li>
                             </ul>
                         </li>
                         
@@ -107,11 +107,7 @@ include './Class/Upload.php';
                                 <li><a href="arrange-testimonial.php">Arange Comments</a></li>
                             </ul>
                         </li>
-                        
-                        
-                        
-                        
-                        
+                         
                         
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

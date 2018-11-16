@@ -4,14 +4,12 @@ include './function.php';
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
-
-    <!-- Mirrored from html.physcode.com/travel/home-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Jul 2017 06:20:17 GMT -->
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="xmlrpc.html">
-        <title>Exploration Travel Sri Lanka</title>
+        <title>Exploration Travel Sri Lanka || Exploration Travel Sri Lanka</title>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" media="all">
         <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css" media="all">
@@ -19,10 +17,11 @@ include './function.php';
         <link rel="stylesheet" href="assets/css/font-linearicons.css" type="text/css" media="all">
         <link rel="stylesheet" href="style.css" type="text/css" media="all">
         <link rel="stylesheet" href="assets/css/travel-setting.css" type="text/css" media="all">
-        <link rel="shortcut icon" href="images/favicon1.png" type="image/x-icon">
+        <link rel="shortcut icon" href="images/logo/logocap.png" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/custom.css" type="text/css" media="all">
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="booking-form/style.css" rel="stylesheet" type="text/css"/>
+    
 
     </head>
     <body cz-shortcut-listen="true">
@@ -165,7 +164,7 @@ include './function.php';
                         <div class="row wrapper-tours-slider" id="wrapper-tours-slider">
                             <div class="tours-type-slider list_content" data-dots="true" data-nav="true" data-responsive='{"0":{"items":1}, "480":{"items":2}, "768":{"items":2}, "992":{"items":3}, "1200":{"items":4}}'>
                                 <?php
-                                $packages = getAllPackages();
+                                $packages = AllPackages();
                                 foreach ($packages as $package) {
                                     ?>
                                     <div class="item-tour">
@@ -173,15 +172,40 @@ include './function.php';
                                             <div class="item_content">
                                                 <div class="post_images">
                                                     <a href="view-package.php?id=<?php echo $package['id']; ?>" class="travel_tour-LoopProduct-link">
-                                                        <img src="images/packages/<?php echo $package['image_name']; ?>" alt="" title="">
+                                                        <img src="upload/tour-package/thumb1/<?php echo $package['image_name']; ?>" alt="" title="">
                                                     </a>
+
                                                 </div>
+
+ 
+                                                                 
                                                 <div class="wrapper_content">
-                                                    <div class="post_title"><h4>
-                                                            <a href="view-package.php?id=<?php echo $package['id']; ?>" rel="bookmark"><?php echo substr($package['title'], 0, 22) . '...'; ?></a>
-                                                        </h4></div>
-                                                    <span class="post_date"><?php echo $package['duration']; ?></span>
-                                                    <p class="text-justify"><?php echo substr($package['short_description'], 0, 60) . '...'; ?></p>
+                                                    <div class="post_title" title="<?php echo $package['title']; ?>">
+                                                        <h4>
+                                                            
+                                                            <a href="view-package.php?id=<?php echo $package['id']; ?>" rel="bookmark">
+                                                                <?php
+                                                                if (strlen($package['title']) > 18) {
+                                                                    echo substr($package['title'], 0, 18) . '...';
+                                                                } else {
+                                                                    echo $package['title'];
+                                                                }
+                                                                ?>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <!--<span class="post_date"></span>-->
+                                                    <p class="text-justify">
+
+
+                                                        <?php
+                                                        if (strlen($package['short_description']) > 60) {
+                                                            echo substr($package['short_description'], 0, 60) . '...';
+                                                        } else {
+                                                            echo $package['short_description'];
+                                                        }
+                                                        ?>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="read_more">

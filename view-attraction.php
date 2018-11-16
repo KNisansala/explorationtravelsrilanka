@@ -13,7 +13,7 @@ $details = getOneAttraction($id);
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <meta name="viewport" content="width=device-width">
-        <title><?php echo $details["title"]; ?></title>
+        <title><?php echo $details["title"]; ?> || Exploration Travel Sri Lanka</title>
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="xmlrpc.html">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
@@ -23,7 +23,7 @@ $details = getOneAttraction($id);
         <link rel="stylesheet" href="assets/css/font-linearicons.css" type="text/css" media="all">
         <link rel="stylesheet" href="style.css" type="text/css" media="all">
         <link rel="stylesheet" href="assets/css/travel-setting.css" type="text/css" media="all">
-        <link rel="shortcut icon" href="images/favicon11.png" type="image/x-icon">
+        <link rel="shortcut icon" href="images/logo/logocap.png" type="image/x-icon">
         <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -36,7 +36,7 @@ $details = getOneAttraction($id);
             <div class="site wrapper-content">
                 <div class="top_site_main" style="background-image:url(images/banner/top-heading.jpg);">
                     <div class="banner-wrapper container article_heading">
-                        
+
                         <h1 class="heading_primary"><?php echo $details["title"]; ?></h1>
                         <div class="breadcrumbs-wrapper">
                             <ul class="phys-breadcrumb">
@@ -45,7 +45,7 @@ $details = getOneAttraction($id);
                                 <li><?php echo $details["title"]; ?></li>
                             </ul>
                         </div>
-                    
+
                     </div>
                 </div>
                 <section class="content-area">
@@ -58,23 +58,23 @@ $details = getOneAttraction($id);
                                         <?php
                                         $photos = getAllAttractionPhotos($id);
                                         foreach ($photos as $key => $photo) {
-                                            if($key<4){
-                                            ?>
-                                            <li class="item-tour col-md-3 col-sm-6 product">
-                                                <div class="item_border item-product">
-                                                    <div class="post_images">
-                                                        <a href="images/attractions/gallery/<?php echo $photo["image_name"]; ?>">
+                                            if ($key < 4) {
+                                                ?>
+                                                <li class="item-tour col-md-3 col-sm-6 product">
+                                                    <div class="item_border item-product">
+                                                        <div class="post_images">
+                                                            <a href="images/attractions/gallery/<?php echo $photo["image_name"]; ?>">
 
-                                                            <img width="430" height="305" src="images/attractions/gallery/thumb/<?php echo $photo["image_name"]; ?>" alt="#" title="#">
-                                                        </a>
+                                                                <img width="430" height="305" src="images/attractions/gallery/thumb/<?php echo $photo["image_name"]; ?>" alt="#" title="#">
+                                                            </a>
+
+                                                        </div>
+
 
                                                     </div>
-
-
-                                                </div>
-                                            </li>
-                                            <?php
-                                        }
+                                                </li>
+                                                <?php
+                                            }
                                         }
                                         ?>
                                     </ul>
@@ -94,32 +94,32 @@ $details = getOneAttraction($id);
                                     foreach ($attractions as $key => $attraction) {
                                         if ($key < 4) {
                                             ?>
-                                         <div class="custom-activity-container">
+                                            <div class="custom-activity-container">
                                                 <div class="inner-activity">
-                                                <div class="pull-left">
-                                                    <a href="view-attraction.php?id=<?php echo $attraction['id']; ?>">
-                                                        <b><?php echo $attraction['title']; ?></b>
-                                                        <br>
-                                                    </a>
+                                                    <div class="pull-left">
+                                                        <a href="view-attraction.php?id=<?php echo $attraction['id']; ?>">
+                                                            <b><?php echo $attraction['title']; ?></b>
+                                                            <br>
+                                                        </a>
+                                                    </div>
+                                                    <div class="text-justify pull-right">
+                                                        <img class="pull-left" width="45%" id="img-left" src="images/attractions/<?php echo $attraction['image_name']; ?>" alt="#" title="#">
+                                                        <p><?php echo substr($attraction['short_description'], 0, 40) . '...'; ?>  
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <div class="text-justify pull-right">
-                                                    <img class="pull-left" width="45%" id="img-left" src="images/attractions/<?php echo $attraction['image_name']; ?>" alt="#" title="#">
-                                                    <p><?php echo substr($attraction['short_description'], 0, 40) . '...'; ?>  
-                                                    </p>
-                                                </div>
-                                                </div>
-                                         </div>
-                                               <?php
+                                            </div>
+                                            <?php
                                         }
                                     }
                                     ?>
-                                            </div>
-                                 
                                 </div>
+
                             </div>
-
-
                         </div>
+
+
+                    </div>
                 </section>
             </div>
             <?php

@@ -11,7 +11,7 @@ $offers = getAlloffers();
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Offers</title>
+        <title>Offers || Exploration Travel Sri Lanka</title>
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="xmlrpc.html">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
@@ -26,6 +26,7 @@ $offers = getAlloffers();
         <link rel="shortcut icon" href="images/favicon11.png" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/custom.css" type="text/css" media="all">
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" href="images/logo/logocap.png" type="image/x-icon">
     </head>
 
     <body class="single-product travel_tour-page travel_tour" cz-shortcut-listen="true">

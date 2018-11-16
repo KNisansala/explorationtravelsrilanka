@@ -12,9 +12,10 @@ $aboutus = getAboutUspageContant();
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <meta name="viewport" content="width=device-width">
-        <title>About Us</title>
+        <title>About Us || Exploration Travel Sri Lanka</title>
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="xmlrpc.html">
+        <link rel="shortcut icon" href="images/logo/logocap.png" type="image/x-icon">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" media="all">
         <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css" media="all">
@@ -22,7 +23,6 @@ $aboutus = getAboutUspageContant();
         <link rel="stylesheet" href="assets/css/font-linearicons.css" type="text/css" media="all">
         <link rel="stylesheet" href="style.css" type="text/css" media="all">
         <link rel="stylesheet" href="assets/css/travel-setting.css" type="text/css" media="all">
-        <link rel="shortcut icon" href="images/favicon11.png" type="image/x-icon">
         <link rel="stylesheet" href="assets/css/custom.css" type="text/css" media="all">
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -33,7 +33,7 @@ $aboutus = getAboutUspageContant();
             include './header.php';
             ?>
             <div class="site wrapper-content">
-                <div class="top_site_main" style="background-image:url(images/banner/abot.jpg);">
+                <div class="top_site_main" style="background-image:url(images/banner/arugam-bay-beach.jpg);">
                     <div class="banner-wrapper container article_heading">
                         
                         <h1 class="heading_primary">About Us</h1>

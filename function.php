@@ -412,8 +412,8 @@ function getAllPackages() {
 
 function getOnePackage($id) {
 
-    $query = "SELECT * FROM `packages` WHERE `id` = '$id' LIMIT 1";
-
+//    $query = "SELECT * FROM `packages` WHERE `id` = '$id' LIMIT 1";
+    $query = "SELECT * FROM `tour_package` WHERE `id` = '$id' LIMIT 1";
     $db = new DB();
     $result = $db->readQuery($query);
 
@@ -1410,26 +1410,22 @@ function getOneTourPackageByID($id) {
 
 function createTourpackage($post, $file) {
 
-    $addImgName = filename();
-    $dir_dest = '../images/packages/';
-    $dir_dest_thumb = '../images/packages/thumb/';
-    $dir_dest_thumb1 = '../upload/tour-package/thumb1/';
-    $handle = new Upload($file['image']);
-    $imgName = null;
 
-//    $addImgName = filename();
-//
-//    $dir_dest = '../images/packages/';
-//
-//    $handle = new Upload($file['image']);
-//
-//    $imgName = null;
+    $addImgName = filename();
+    $handle = new Upload($file['image']);
+    $id = $_POST['id'];
+    $imgName = null;
+    $dir_dest = '../upload/tour-package/';
+    $dir_dest_thumb = '../upload/tour-package/thumb/';
+    $dir_dest_thumb1 = '../upload/tour-package/thumb1/';
+
+
 
     if ($handle->uploaded) {
         $handle->image_resize = true;
         $handle->file_new_name_ext = 'jpg';
         $handle->image_ratio_crop = 'C';
-//        $handle->file_new_name_body = Helper::randamId();
+        $handle->file_new_name_body = $addImgName;
         $handle->image_x = 577;
         $handle->image_y = 545;
 
@@ -1442,7 +1438,7 @@ function createTourpackage($post, $file) {
         $handle->image_resize = true;
         $handle->file_new_name_ext = 'jpg';
         $handle->image_ratio_crop = 'C';
-//        $handle->file_new_name_body = Helper::randamId();
+        $handle->file_new_name_body = $addImgName;
         $handle->image_x = 65;
         $handle->image_y = 65;
 
@@ -1450,22 +1446,22 @@ function createTourpackage($post, $file) {
 
         if ($handle->processed) {
             $info = getimagesize($handle->file_dst_pathname);
-            $imgName = $handle->file_dst_name;
+//            $imgName = $handle->file_dst_name;
         }
 
 
         $handle->image_resize = true;
         $handle->file_new_name_ext = 'jpg';
         $handle->image_ratio_crop = 'C';
-//        $handle->file_new_name_body = Helper::randamId();
-        $handle->image_x = 190;
-        $handle->image_y = 111;
+        $handle->file_new_name_body = $addImgName;
+        $handle->image_x = 430;
+        $handle->image_y = 305;
 
         $handle->Process($dir_dest_thumb1);
 
         if ($handle->processed) {
             $info = getimagesize($handle->file_dst_pathname);
-            $imgName = $handle->file_dst_name;
+//            $imgName = $handle->file_dst_name;
         }
     }
 
@@ -1480,12 +1476,14 @@ VALUES ('" . mysql_real_escape_string($_POST['title']) . "','" . mysql_real_esca
 }
 
 function updateOneTourPackage($post, $file) {
-
-    $dir_dest = '../images/packages/';
-    $dir_dest_thumb = '../images/packages/thumb/';
+    $id = $_POST['id'];
+    $imageold = $_POST['oldImageName'];
+    $dir_dest = '../upload/tour-package/';
+    $dir_dest_thumb = '../upload/tour-package/thumb/';
     $dir_dest_thumb1 = '../upload/tour-package/thumb1/';
     $handle = new Upload($file['image']);
     $imgName = null;
+
 
 
     if ($handle->uploaded) {
@@ -1531,8 +1529,8 @@ function updateOneTourPackage($post, $file) {
         $handle->file_new_name_ext = FALSE;
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $imageold;
-        $handle->image_x = 65;
-        $handle->image_y = 65;
+        $handle->image_x = 430;
+        $handle->image_y = 305;
 
         $handle->Process($dir_dest_thumb1);
 
@@ -1541,19 +1539,445 @@ function updateOneTourPackage($post, $file) {
             $imgName = $handle->file_dst_name;
         }
     }
-    
-     $db = new DB();
 
-    $sql = "UPDATE `packages` SET "
+    $db = new DB();
+
+    $sql = "UPDATE `tour_package` SET "
             . "`title` = '" . mysql_real_escape_string($_POST['title']) . "',"
-            . "`duration` = '" . mysql_real_escape_string($_POST['duration']) . "',"
+            . "`price` = '" . mysql_real_escape_string($_POST['price']) . "',"
             . "`short_description` = '" . mysql_real_escape_string($_POST['short_description']) . "',"
-            . " `description` = '" . mysql_real_escape_string($_POST['description']) . "' "
+            . "`description` = '" . mysql_real_escape_string($_POST['description']) . "'"
             . "WHERE `id` = '$id' ";
 
     $result = $db->readQuery($sql);
 
     return $result;
-    
-    
+}
+
+//View Tour Date
+
+function getTourDateByTourId($tour) {
+    $query = "SELECT * FROM `tour_date` WHERE `tour`=" . $tour;
+    $db = new DB();
+    $result = $db->readQuery($query);
+    $array_res = array();
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($array_res, $row);
+    }
+
+    return $array_res;
+}
+
+function getTourDateById($id) {
+    $query = "SELECT * FROM `tour_date` WHERE `id`= $id ORDER BY queue ASC";
+    $db = new DB();
+    $result = $db->readQuery($query);
+    $row = mysql_fetch_assoc($result);
+    return $row;
+}
+
+function getOneTourDate($tourDate) {
+//    dd($tourDate);
+    $sql = "SELECT * FROM `tour_date` WHERE `id`=" . $tourDate;
+
+    $db = new DB();
+    $result = $db->readQuery($sql);
+
+    $row = mysql_fetch_assoc($result);
+
+    return $row;
+}
+
+function updateOneTourDate($post, $file) {
+
+    $imageold = $_POST['oldImg'];
+    $id = $_POST['id'];
+
+    $dir_dest = '../upload/tour-package/gallery/';
+    $dir_dest_thumb = '../upload/tour-package/gallery/thumb/';
+
+    $handle = new Upload($file['image']);
+
+    $imgName = null;
+
+    if ($handle->uploaded) {
+        $handle->image_resize = true;
+        $handle->file_new_name_body = TRUE;
+        $handle->file_overwrite = TRUE;
+        $handle->file_new_name_ext = FALSE;
+        $handle->image_ratio_crop = 'C';
+        $handle->file_new_name_body = $imageold;
+        $handle->image_x = 900;
+        $handle->image_y = 500;
+
+        $handle->Process($dir_dest);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+
+        $handle->image_resize = true;
+        $handle->file_new_name_body = TRUE;
+        $handle->file_overwrite = TRUE;
+        $handle->file_new_name_ext = FALSE;
+        $handle->image_ratio_crop = 'C';
+        $handle->file_new_name_body = $imageold;
+        $handle->image_x = 430;
+        $handle->image_y = 305;
+
+        $handle->Process($dir_dest_thumb);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+    }
+
+    $db = new DB();
+
+    $sql = "UPDATE `tour_date` SET "
+            . "`title` = '" . mysql_real_escape_string($_POST['title']) . "',"
+            . "`description` = '" . mysql_real_escape_string($_POST['description']) . "'"
+            . "WHERE `id` = '$id' ";
+
+    $result = $db->readQuery($sql);
+
+    return $result;
+}
+
+function TourDate($post, $file) {
+
+    $addImgName = filename();
+    $id = $_POST['id'];
+    $dir_dest = '../upload/tour-package/gallery/';
+    $dir_dest_thumb = '../upload/tour-package/gallery/thumb/';
+
+    $handle = new Upload($file['image']);
+
+    $imgName = null;
+
+    if ($handle->uploaded) {
+        $handle->image_resize = true;
+        $handle->file_new_name_ext = 'jpg';
+        $handle->image_ratio_crop = 'C';
+        $handle->file_new_name_body = $addImgName;
+        $handle->image_x = 900;
+        $handle->image_y = 500;
+
+        $handle->Process($dir_dest);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+
+        $handle->image_resize = true;
+        $handle->file_new_name_ext = 'jpg';
+        $handle->image_ratio_crop = 'C';
+        $handle->file_new_name_body = $addImgName;
+        $handle->image_x = 430;
+        $handle->image_y = 305;
+
+        $handle->Process($dir_dest_thumb);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+        }
+    }
+
+    $db = new DB();
+
+    $query = "INSERT INTO `tour_date` (`tour`,`title`,`image_name`,`description`)
+VALUES ('" . mysql_real_escape_string($_POST['id']) . "','" . mysql_real_escape_string($_POST['title']) . "', '" . mysql_real_escape_string($imgName) . "','" . mysql_real_escape_string($_POST['description']) . "')";
+
+    $result = $db->readQuery($query);
+
+    return $result;
+}
+
+// Tour Date Photo
+
+function getOneTourDatePhoto($tourDate) {
+//    dd($tourDate);
+    $sql = "SELECT * FROM `tour_date_photo` WHERE `id`=" . $tourDate;
+
+    $db = new DB();
+    $result = $db->readQuery($sql);
+
+    $row = mysql_fetch_assoc($result);
+
+    return $row;
+}
+
+function getTourDatePhotoByTourId($id) {
+    $query = "SELECT `id`,`tour_date`,`image_name`,`caption`,`queue` FROM `tour_date_photo` WHERE `tour_date`=" . $id;
+    $db = new DB();
+    $result = $db->readQuery($query);
+    $array_res = array();
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($array_res, $row);
+    }
+
+    return $array_res;
+}
+
+function TourDatePhoto($post, $file) {
+    $id = $_POST['id'];
+    $addImgName = filename();
+    $dir_dest = '../upload/tour-package/date/gallery/';
+    $dir_dest_thumb = '../upload/tour-package/date/gallery/thumb/';
+    $handle = new Upload($file['image']);
+    $imgName = null;
+
+    if ($handle->uploaded) {
+        $handle->image_resize = true;
+        $handle->file_new_name_ext = 'jpg';
+        $handle->image_ratio_crop = 'C';
+        $handle->image_x = 900;
+        $handle->image_y = 500;
+
+        $handle->Process($dir_dest);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+        $handle->image_resize = true;
+        $handle->file_new_name_ext = 'jpg';
+        $handle->image_ratio_crop = 'C';
+        $handle->image_x = 300;
+        $handle->image_y = 175;
+
+        $handle->Process($dir_dest_thumb);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+    }
+
+    $db = new DB();
+
+    $query = "INSERT INTO `tour_date_photo` (tour_date,image_name,caption)
+VALUES ('" . mysql_real_escape_string($_POST['id']) . "','" . mysql_real_escape_string($imgName) . "', '" . mysql_real_escape_string($_POST['caption']) . "')";
+
+    $result = $db->readQuery($query);
+
+    return $result;
+}
+
+function updateOneTourDatePhoto($post, $file) {
+
+    $imageold = $_POST['oldImg'];
+    $id = $_POST['id'];
+    $dir_dest = '../upload/tour-package/date/gallery/';
+    $dir_dest_thumb = '../upload/tour-package/date/gallery/thumb/';
+    $handle = new Upload($file['image']);
+    $imgName = null;
+
+    if ($handle->uploaded) {
+        $handle->image_resize = true;
+        $handle->file_new_name_body = TRUE;
+        $handle->file_overwrite = TRUE;
+        $handle->file_new_name_ext = FALSE;
+        $handle->image_ratio_crop = 'C';
+        $handle->file_new_name_body = $imageold;
+        $handle->image_x = 900;
+        $handle->image_y = 500;
+
+        $handle->Process($dir_dest);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+
+        $handle->image_resize = true;
+        $handle->file_new_name_body = TRUE;
+        $handle->file_overwrite = TRUE;
+        $handle->file_new_name_ext = FALSE;
+        $handle->image_ratio_crop = 'C';
+        $handle->file_new_name_body = $imageold;
+        $handle->image_x = 300;
+        $handle->image_y = 175;
+
+        $handle->Process($dir_dest_thumb);
+
+        if ($handle->processed) {
+            $info = getimagesize($handle->file_dst_pathname);
+            $imgName = $handle->file_dst_name;
+        }
+    }
+
+    $db = new DB();
+
+    $sql = "UPDATE `tour_date_photo` SET "
+            . "`caption` = '" . mysql_real_escape_string($_POST['caption']) . "'"
+            . "WHERE `id` = '$id' ";
+
+    $result = $db->readQuery($sql);
+
+    return $result;
+}
+
+//Arrange tour package
+function getAllTourPackages() {
+
+    $query = "SELECT * FROM `tour_package` ORDER BY queue ASC";
+
+    $db = new DB();
+
+    $result = $db->readQuery($query);
+
+    $array_res = array();
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($array_res, $row);
+    }
+
+    return $array_res;
+}
+
+//Arrange tour date
+function getAllTourDate($tour) {
+
+    $query = "SELECT * FROM `tour_date` WHERE `tour`= $tour ORDER BY queue ASC";
+
+    $db = new DB();
+
+    $result = $db->readQuery($query);
+
+    $array_res = array();
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($array_res, $row);
+    }
+
+    return $array_res;
+}
+
+//Arrange Tour Date photo
+
+function getAllTourPackagePhotos($id) {
+
+    $query = "SELECT * FROM `tour_date_photo` WHERE `tour_date`= $id ORDER BY queue ASC";
+
+    $db = new DB();
+
+    $result = $db->readQuery($query);
+
+    $array_res = array();
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($array_res, $row);
+    }
+
+    return $array_res;
+}
+
+//Delete Tour package
+
+
+
+function getAllTourDatebyid($id) {
+
+    $query = "SELECT * FROM `tour_package` WHERE `tour`= $id ORDER BY queue ASC";
+
+    $db = new DB();
+
+    $result = $db->readQuery($query);
+
+    $array_res = array();
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($array_res, $row);
+    }
+
+    return $array_res;
+}
+
+//delete tour date
+
+function getOneTourdatebyid($id) {
+
+    $query = "SELECT * FROM `tour_date` WHERE `tour` = '$id' LIMIT 1";
+
+    $db = new DB();
+    $result = $db->readQuery($query);
+
+    $row = mysql_fetch_assoc($result);
+
+    return $row;
+}
+
+function getAllTourDates($id) {
+
+    $query = "SELECT * FROM `tour_date` WHERE `id` = '$id' ORDER BY tour ASC";
+
+    $db = new DB();
+
+    $result = $db->readQuery($query);
+
+    $array_res = array();
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($array_res, $row);
+    }
+
+    return $array_res;
+}
+
+//delete tour date photo
+function getAllTourDatesPhoto($id) {
+
+    $query = "SELECT * FROM `tour_date_photo` WHERE `id` = '$id' ORDER BY tour_date ASC";
+
+    $db = new DB();
+
+    $result = $db->readQuery($query);
+
+    $array_res = array();
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($array_res, $row);
+    }
+
+    return $array_res;
+}
+
+function getAllTourDatesbytour($id) {
+
+    $query = "SELECT * FROM `tour_date` WHERE `tour` = '$id' ORDER BY tour ASC";
+
+    $db = new DB();
+
+    $result = $db->readQuery($query);
+
+    $array_res = array();
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($array_res, $row);
+    }
+
+    return $array_res;
+}
+
+function getAllTourDatesPhotobytour($id) {
+
+    $query = "SELECT * FROM `tour_date_photo` WHERE `tour_date` = '$id' ORDER BY queue ASC";
+
+    $db = new DB();
+
+    $result = $db->readQuery($query);
+
+    $array_res = array();
+
+    while ($row = mysql_fetch_array($result)) {
+        array_push($array_res, $row);
+    }
+
+    return $array_res;
 }

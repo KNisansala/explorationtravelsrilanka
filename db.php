@@ -7,11 +7,11 @@ public $databseName = "safarilanka";
 public $databseUser = "root";
 public $databsePassword = "";
 
-
-//public $databseHost = "kelum818.ipagemysql.com";
-//public $databseName = "safarilanka";
-//public $databseUser = "safarilanka";
-//public $databsePassword = "SAF#8718@12288";
+//
+//public $databseHost = "localhost";
+//public $databseName = "gallnwxt_explorationtravel";
+//public $databseUser = "gallnwxt_explorationtravel";
+//public $databsePassword = "uOy)f9Wtw$~w";
 
 
 public function __construct() {

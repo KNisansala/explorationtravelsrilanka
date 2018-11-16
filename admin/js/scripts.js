@@ -32,10 +32,26 @@ $(document).ready(function () {
         }
     });
 
+ $('.delete-tour-date-photo').click(function (e) {
+        var r = confirm("Are you really want delete this Details?....");
+        if (r) {
+            window.location.replace("delete/tour_date_photo.php?id=" + this.id);
+        }
+    });
+
+    $('.delete-tour-date').click(function (e) {
+        var r = confirm("Are you really want delete this picture?....");
+        if (r) {
+            window.location.replace("delete/tour_date.php?id=" + this.id);
+            
+        }
+    });
+
+
     $('.delete-pack').click(function (e) {
         var r = confirm("Are you really want delete this Package?....");
         if (r) {
-            window.location.replace("delete/package.php?id=" + this.id);
+            window.location.replace("delete/tour_package.php?id=" + this.id);
         }
     });
 
